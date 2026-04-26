@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://0cgks3tul46o"]
+
+[ext_resource type="Script" uid="uid://cbeiwce082hh0" path="res://player/hamsterbot.gd" id="1_4ujqo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xwsur"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rsrnb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ujqo"]
+
+[node name="Hamsterbot" type="CharacterBody3D" unique_id=1213581985]
+script = ExtResource("1_4ujqo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=922978201]
+mesh = SubResource("CapsuleMesh_xwsur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=186622006]
+shape = SubResource("CapsuleShape3D_rsrnb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=51530535]
+transform = Transform3D(-0.010830508, 0, 0.6509465, 0, 0.24134213, 0, -0.8284461, 0, -0.008510005, 0.03821534, 0.35700548, -0.10860884)
+mesh = SubResource("BoxMesh_4ujqo")

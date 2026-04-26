@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://f3seuulmfq4q"]
+
+[ext_resource type="PackedScene" uid="uid://0cgks3tul46o" path="res://player/hamsterbot.tscn" id="1_c13y7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_yb1ct"]
+sky_material = SubResource("ProceduralSkyMaterial_7n6eb")
+
+[sub_resource type="Environment" id="Environment_ehuit"]
+background_mode = 2
+sky = SubResource("Sky_yb1ct")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cgksj"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7n6eb"]
+
+[node name="Node3D" type="Node3D" unique_id=2045970484]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=417765697]
+environment = SubResource("Environment_ehuit")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=953583734]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.39610386, 7.2840776, -5.845002)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1495102096]
+transform = Transform3D(7.9908133, 0, 0, 0, 1.0002316, 0, 0, 0, 7.977824, 0, 0, 0)
+mesh = SubResource("PlaneMesh_cgksj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=188260200]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=576770578]
+transform = Transform3D(-0.13454258, 0, 0, 0, 0.9999997, 0, 0, 0, -0.11373009, 0.0043761916, -0.048962686, -0.025618041)
+shape = SubResource("WorldBoundaryShape3D_7n6eb")
+
+[node name="Hamsterbot" parent="." unique_id=1213581985 instance=ExtResource("1_c13y7")]
+transform = Transform3D(0.10336703, 0, -1.1442192, 0, 1.1488787, 0, 1.1442192, 0, 0.10336703, 0.0025823116, 1.1613736, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1662654031]
+transform = Transform3D(0.14519492, 0.0620234, 0.98745716, 0.020349607, 0.9976349, -0.06565487, -0.9891938, 0.029627116, 0.14358936, 11.860299, 3.7015567, 0.47524047)
+fov = 88.05808
